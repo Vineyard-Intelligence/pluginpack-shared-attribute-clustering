@@ -17,9 +17,7 @@ One plugin:
 
 - It consumes the data the collection packs (**Domain Recon**, **IP Recon**, **Certificate
   Transparency**) write onto nodes — so run those first, then pivot to reveal who-owns-what.
-- Members of each cluster are linked in a **star topology** (member ↔ others), so linking is O(n),
-  not O(n²); the shared value is embedded in the edge label so the link reads correctly regardless
-  of direction.
+- Members of each cluster are linked in a **star topology**; the shared value is in the edge label.
 - **Over-common clusters are skipped** (more than 30 members): a value shared that widely isn't
   discriminating enough to imply shared operation. Low-signal attributes (country, bare
   organization) are intentionally excluded for the same reason.
@@ -31,6 +29,6 @@ touch the graph (human-in-the-loop).
 ## Layout
 
 - `plugins/cti-pivot.manifest.json` — the pack manifest (catalog entry source).
-- `dist/` — runnable bundle (see note; not built yet — the plugin runs as a built-in in-app today).
+- `dist/` — runnable bundle.
 
 No external data sources: attribution is derived entirely from attributes already on the graph.
