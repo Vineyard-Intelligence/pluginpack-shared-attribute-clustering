@@ -1,9 +1,9 @@
 {
-  "identifier": "run.vineyard.pluginpacks.cti_pivot",
+  "identifier": "run.vineyard.pluginpacks.shared_attribute_clustering",
   "content_type": "vineyard:pluginpack",
-  "name": "CTI Pivot",
-  "version": "1.0.0",
-  "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis \u2014 no network, no keys.",
+  "name": "Shared-Attribute Clustering",
+  "version": "1.1.0",
+  "description": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, using data already in the graph.",
   "author": {
     "name": "VINEYARD",
     "url": "https://github.com/Vineyard-Intelligence"
@@ -19,11 +19,11 @@
   },
   "plugins": [
     {
-      "identifier": "run.vineyard.plugins.shared_attribute_pivot",
+      "identifier": "run.vineyard.plugins.shared_attribute_clustering",
       "content_type": "vineyard:plugin",
-      "name": "Shared-Attribute Pivot",
-      "version": "1.0.0",
-      "description": "Clusters the selected (or whole-graph) infrastructure by discriminating shared observables \u2014 registrar, nameserver, announcing ASN, TLS certificate \u2014 and links each cluster with a \"shared X\" edge. The CTI attribution analogue of identity resolution. No network.",
+      "name": "Shared-Attribute Clustering",
+      "version": "1.1.0",
+      "description": "Links nodes that share a registrar or nameserver (Domain), announcing ASN (IP Address) or SHA-256 fingerprint (Certificate), using the selected nodes or, with no selection, the whole graph. Edges are labelled \"shared registrar: <value>\", \"shared nameserver: <value>\", \"same ASN: <value>\" or \"shared certificate: <value>\"; values shared by more than 30 nodes are skipped and existing edges are not duplicated. Uses only data already on the nodes.",
       "icon": "git-fork",
       "platforms": {
         "primary": "web",

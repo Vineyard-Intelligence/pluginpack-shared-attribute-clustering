@@ -1,4 +1,4 @@
-# CTI Pivot
+# Shared-Attribute Clustering
 
 A Vineyard **plugin pack** for **infrastructure attribution** — the CTI analogue of identity
 resolution. Instead of "are these two accounts the same person?", it answers "does this
@@ -6,12 +6,13 @@ infrastructure belong to the same operator?". Pure graph analysis: no server, no
 
 One plugin:
 
-- **Shared-Attribute Pivot** — clusters the selected (or whole-graph) nodes by *discriminating*
-  shared observables and links each cluster with a `shared X` edge:
+- **Shared-Attribute Clustering** (`run.vineyard.plugins.shared_attribute_clustering`) — links nodes
+  that share a registrar or nameserver (Domain), announcing ASN (IP Address) or SHA-256 fingerprint
+  (Certificate), using the selected nodes or, with no selection, the whole graph:
   - Domains with the same **registrar** → `shared registrar: …`
   - Domains with the same **nameserver** → `shared nameserver: …`
   - IPs announced by the same **ASN** → `same ASN: …`
-  - Hosts/domains with the same **TLS certificate** fingerprint → `shared certificate: …`
+  - Certificates with the same **SHA-256 fingerprint** → `shared certificate: …`
 
 ## How it works
 
@@ -28,7 +29,7 @@ touch the graph (human-in-the-loop).
 
 ## Layout
 
-- `plugins/cti-pivot.manifest.json` — the pack manifest (catalog entry source).
+- `plugins/shared-attribute-clustering.manifest.json` — the pack manifest (catalog entry source).
 - `dist/` — runnable bundle.
 
 No external data sources: attribution is derived entirely from attributes already on the graph.
