@@ -30,6 +30,17 @@ touch the graph (human-in-the-loop).
 ## Layout
 
 - `plugins/shared-attribute-clustering.manifest.json` — the pack manifest (catalog entry source).
+- `src/` — the source of the bundle.
 - `dist/` — runnable bundle.
 
 No external data sources: attribution is derived entirely from attributes already on the graph.
+
+## Building from source
+
+`src/` is the source of `dist/pack.mjs`. The build pins esbuild, so the published bundle can be
+checked against the source:
+
+```bash
+node build.mjs
+git diff --exit-code dist/pack.mjs
+```
