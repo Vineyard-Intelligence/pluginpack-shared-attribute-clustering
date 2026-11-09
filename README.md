@@ -16,8 +16,10 @@ One plugin:
 
 ## How it works
 
-- It consumes the data the collection packs (**Domain Recon**, **IP Recon**, **Certificate
-  Transparency**) write onto nodes — so run those first, then pivot to reveal who-owns-what.
+- It reads only what other packs have already written onto nodes: a Domain's `registrar` and
+  `name_servers` (**Domain Recon**), an IP Address's `asn` (for example **IP → ASN (Team Cymru)**),
+  and a TLS Certificate's `fingerprint_sha256` (for example **Censys**, **Shodan** or
+  **VirusTotal**). Run those first, then cluster to reveal who-owns-what.
 - Members of each cluster are linked in a **star topology**; the shared value is in the edge label.
 - **Over-common clusters are skipped** (more than 30 members): a value shared that widely isn't
   discriminating enough to imply shared operation. Low-signal attributes (country, bare
